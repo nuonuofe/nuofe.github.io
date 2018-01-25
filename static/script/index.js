@@ -28,4 +28,11 @@ $(".chervon").on("click", function() {
 $(".qrcode").on("mouseenter mouseleave", function(e) {
      var n = $(".qrcode-popover");
      return "" === n.css("display") || "none" === n.css("display") ? n.css("display", "block") : n.css("display", "none"), !1;
-   });
+});
+
+
+
+$('#mobile').click(function(event) {
+  /* Act on the event */
+  $('.nfe-nav ol').toggle();
+});
