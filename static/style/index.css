@@ -89,14 +89,14 @@
 }
 
 .first-screen .content-wrapper .intro p {
-    line-height: 42px;
-    font-size: 30px;
+    line-height: 50px;
+    font-size: 40px;
 }
 
 .first-screen .content-wrapper .intro .intro-des {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 26px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 /* .first-screen .content-wrapper img {
