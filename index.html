@@ -1,253 +1,105 @@
 <!DOCTYPE html>
+<!-- 
+       ____      ___    _________    _________
+      /    \    /  /   /  ______/   /  ______/
+     /  /\  \  /  /   /  /____     /  /____   
+    /  /  \  \/  /   /  _____/    /  _____/  
+   /  /    \    /   /  /         /  /______   
+  /__/      \__/   /__/         /_________/  
+ -->
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no' name='viewport'>
-  <meta name="format-detection" content="telephone=no">
-  <meta content="email=no" name="format-detection">
-  <title>诺诺网 大前端 [ NuoFE ]</title>
-  <style type="text/css">
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      max-width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    #nuofe {
-      top: 50%;
-      position: absolute;
-    }
-    /* about*/
-
-    #nuofe {
-      line-height: 0;
-      padding-bottom: 1px;
-      /*height: 366px;*/
-      margin-left: 6px;
-      transform-origin: left top;
-      -ms-transform-origin: left top;
-      -moz-transform-origin: left top;
-      -webkit-transform-origin: left top;
-      background: url(data:image/gif;base64,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) no-repeat center center;
-    }
-
-    #nuofe span {
-      width: 38px;
-      display: inline-block;
-      border: 1px solid transparent;
-      /*border: 1px solid red;*/
-      height: 38px;
-      margin-left: -1px;
-      margin-bottom: -1px;
-      overflow: hidden;
-      position: relative;
-      background-color: #FFF;
-      transition: all 0.3s;
-    }
-
-    #nuofe span img {
-      height: 40px;
-      display: none;
-      width: auto;
-      max-width: none;
-      position: relative;
-      left: -0px;
-    }
-
-    #nuofe span i {
-      position: absolute;
-      left: -100%;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      transform: skewx(-25deg);
-      -o-transform: skewx(-25deg);
-      -moz-transform: skewx(-25deg);
-      -webkit-transform: skewx(-25deg);
-      background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
-      z-index: 10;
-    }
-
-    #nuofe span:hover i {
-      left: 100%;
-      transition: .5s;
-      -o-transition: .5s;
-      -moz-transition: .5s;
-      -webkit-transition: .5s;
-    }
-
-    .nuofe_on {
-      background-color: transparent;
-    }
-
-    .nuofe_you::after {
-      content: "YOU";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: #FE8604;
-      line-height: 38px;
-      font-size: 14px;
-      color: #FFF;
-      text-align: center;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>诺诺网 大前端 『 NuoFE 』</title>
+  <link rel="stylesheet" href="./static/style/index.css">
 </head>
-
 <body>
-  <div id="nuofe"></div>
+  <div class="nfe-nav">
+    <a href="#" class="home-href">Nuo FE</a>
+    <ol>
+      <li>
+        <a href="javascript:;">首页</a>
+      </li>
+      <li>
+        <a href="https://axnfex.github.io/nui" target="_black">PC端</a>
+      </li>
+      <li>
+        <a href="https://feui.oschina.io/docs/" target="_black">移动端</a>
+      </li>
+      <li>
+        <a href="https://axnfex.github.io/about/" target="_black">About</a>
+      </li>
+      <li>
+        <a href="#" target="_black">其他</a>
+      </li>
+    </ol>
+  </div>
+  <div class="first-screen">
+    <div class="content-wrapper">
+      <div class="intro">
+        <p>我们的愿景</p>
+        <div class="intro-des">
+          成为卓越的Web团队
+          <br />用技术为体验提供无限可能！
+        </div>
+      </div>
+      <img src="./static/images/first-screen-nfe3.png" class="nfe" alt="Nfe">
+      <img src="./static/images/qiuqiu.png" alt="Nfe" class="qiuqiu">
+      <div class="chervon"></div>
+    </div>
+  </div>
+  <div class="content-wrapper pc-wrapper">
+    <div class="page-intro intro-pc">
+      <p class="main-title">PC端</p>
+      <p class="minor-title">模块化 JavaScript UI框架</p>
+      <div class="buttons-container">
+        <a href="https://axnfex.github.io/nui/pages/" class="active" target="_black">文档</a>
+        <a href="https://github.com/axnfex/nui" target="_black">GitHub</a>
+      </div>
+      <iframe src="https://axnfex.github.io/nui" class="ifrmPc" frameborder="0"></iframe>
+    </div>
+  </div>
+  <div class="content-wrapper wap-wrapper">
+    <div class="page-intro intro-wap">
+      <p class="main-title">移动端</p>
+      <p class="minor-title">超好用的 Vue 组件库</p>
+      <div class="qrcode-popover" style="display: none;">
+        <img src="./static/images/feui-qrcode.png" alt="二维码">
+      </div>
+      <div class="buttons-container">
+        <div class="buttons-container">
+          <a href="https://feui.oschina.io/docs" class="active" target="_black">文档</a>
+          <a href="javascript: ;" class="qrcode">扫码查看</a>
+          <a href="https://github.com/zoeblow/feui" target="_black">GitHub</a>
+        </div>
+      </div>
+      <div class='wapDiv'><iframe class="ifrmWap" src="https://feui.gitee.io"></iframe><br></div>
+    </div>
+  </div>
+  <div class="nfe-footer">
+    <div class="content-wrapper">
+      <div class="footer-links">
+        <ul>
+          <li>
+            <a href="javascript:;">首页</a>
+          </li>
+          <li>
+            <a href="https://axnfex.github.io/" target="_black">Blog</a>
+          </li>
+          <li>
+            <a href="https://axnfex.github.io/about/" target="_black">关于我们</a>
+          </li>
+          <li>
+            <a href="https://axnfex.github.io/2017/02/28/jobs/" target="_black">加入我们</a>
+          </li>
+        </ul>
+      </div>
+      <span>2014-2018&nbsp;©&nbsp;Nuo FE&nbsp;</span>
+    </div>
+  </div>
 </body>
-<script type="text/javascript" src="static/script/jquery-1.8.3.min.js"></script>
-<script type="text/javascript">
-  // about
-  var Nuofe = function () {
-    this.pWidth = 760;
-    this.width = 745;
-    this.pHeight = 366;
-    //this.dots = [20, 21, 22, 23, 38, 56, 74, 92, 57, 58, 25, 26, 27, 28, 43, 61, 79, 97, 98, 99, 100, 62, 63, 59, 30, 48, 66, 84, 102, 31, 32, 103, 104, 51, 69, 87, 64];
-    //4*5 FEX
-    // this.dots = [20, 21, 22, 23, 38, 56, 74, 92, 57, 58, 25, 26, 27, 28, 43, 61, 79, 97, 98, 99, 100, 62, 63, 59, 30, 49, 67, 68, 86, 105, 33, 50, 85, 102];
-    // 5*5 FEX
-    // this.dots = [20, 21, 22, 23, 38, 56, 74, 92, 57, 58, 25, 26, 27, 28, 43, 61, 79, 97, 98, 99, 100, 62, 63, 59, 30, 34, 49, 68, 87, 102, 51, 85, 106];
-    // 
-    // FEX 加一个圈
-    this.dots = [40, 41, 42, 43, 59, 78, 97, 116, /*F*/  79, 80,81 ,45, 46, 47, 48, 64, 83, 84, 85, 102, 121, 122, 123, 124,  /*E*/  50,54,70,72,90,108,110,126,130 /*X*/];
-    //,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,38,57,76,95,114,133,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,151,132,113,94,75,56,37/*圈*/
-    // console.log(this.dots.length)
-    this.keys = [
-      'niuxiaoxing1.jpg',
-      'niuxiaoxing2.jpg',
-      'xiaojuan1.jpg',
-      'xiaojuan3.jpg',
-      'dabao1.jpg',
-      'dabao2.jpg',
-      'laosiji1.gif',
-      'laosiji2.gif',
-      'lushengli1.jpg',
-      'lushengli2.jpg',
-      'zhangmaosheng1.jpg',
-      'zhangmaosheng2.jpg',
-      'zhenghanying1.jpg',
-      'zhenghanying2.jpg',
-      'xielulu.jpg',
-      'xielulu1.jpg',
-      'wangjie1.jpg',
-      'wangjie2.jpg',
-      'wangqiangrong1.jpg',
-      'wangqiangrong2.jpg',
-      'baojie1.jpg',
-      'baojie2.jpg',
-      'majingkai1.jpg',
-      'tao1.jpg',
-      'tao2.jpg',
-      'andwang1.jpg',
-      'andwang3.jpg',
-      'aniu1.jpg',
-      'aniu2.jpg',
-      'gangzai1.jpg',
-      'gangzai2.jpg',
-      'guoting1.jpg',
-      'zhuzhipeng1.jpg',
-      'wangchong1.jpg',
-      'wangchong2.jpg',
-      'moyuefeng1.jpg',
-      'moyuefeng2.jpg',
-      'liumengmei1.jpg',
-      'liumengmei2.jpg',
-      'lijianfu.jpg',
-      'lijianfu1.jpg',
-      'lingmengjia.jpg',
-      'lingmengjia1.jpg',
-      'donghaoran1.jpg',
-      'donghaoran2.jpg',
-      'wangshiru1.jpg',
-      'wangshiru3.jpg',
-    ];
-    // console.log(this.keys.length)
-    this.$box = $("#nuofe");
-    this.init();
-  };
-
-  Nuofe.prototype.getFaces = function () {
-    var len = this.dots.length, ret = [];
-    while (len--) {
-      var rand = Math.floor(Math.random() * this.keys.length);
-      ret.push("img/80s/" + this.keys[rand]);
-      this.keys.splice(rand, 1);
-    }
-    return ret;
-  }
-
-  Nuofe.prototype.init = function () {
-    var self = this;
-    // console.log(self.$box)
-    self.$box
-      .css({
-        width: self.width,
-        background: "none"
-      })
-      .append(new Array(19 * 9 + 1).join("<span><img src><i></i></span>"));
-
-    this.bind();
-    this.run();
-
-  };
-
-  Nuofe.prototype.bind = function () {
-    var self = this;
-    $(window).on("resize", function () {
-      var rate = self.$box.parent().width() / self.pWidth;
-      self.$box.css({
-        "transform": "scale(" + rate + ")",
-        "-ms-transform": "scale(" + rate + ")",
-        "-moz-transform": "scale(" + rate + ")",
-        "-webkit-transform": "scale(" + rate + ")",
-        "margin-top":  -(366*rate)/2+'px' 
-      });
-    }).trigger("resize");
-  };
-
-  Nuofe.prototype.run = function () {
-    var faces = this.getFaces();
-    var $spans = this.$box.find("span");
-    var resortDots = [];
-    var isMobile = /android|iphone/i.test(navigator.appVersion);
-    while (this.dots.length) {
-      var rand = Math.floor(Math.random() * this.dots.length);
-      resortDots.push(this.dots[rand]);
-      this.dots.splice(rand, 1);
-    }
-    $.each(resortDots, function (index, item) {
-      var img = faces[index];
-      var $span = $($spans.get(item));
-      setTimeout(function () {
-        $span.css({ backgroundColor: "#FE8604" });
-      }, index * 30);
-      setTimeout(function () {
-        $span
-          .css({ backgroundColor: "#FFF" })
-          .find("img")
-          .attr("src", img)//(isMobile ? "_40x40.jpg" : "_80x80.jpg")
-          .fadeIn();
-      }, (resortDots.length * 2 - index) * 30);
-    });
-
-    setTimeout(function () {
-      var rand = Math.floor(Math.random() * resortDots.length);
-      // console.log(rand, $($spans[resortDots[rand]]));
-      $($spans[resortDots[rand]]).addClass("nuofe_you");
-    }, (resortDots.length * 2 + 1) * 30);
-  };
-  new Nuofe();
-
-</script>
-
+<script src="./static/script/jquery-1.10.2.min.js"></script>
+<script src="./static/script/index.js"></script>
 </html>
